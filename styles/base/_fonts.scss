@@ -1,0 +1,21 @@
+/* Fonts
+ * -----
+ * List of fonts available in the application.
+ * Example of mixin for using fonts with fallback and default font. */
+
+$fontsDirectory: 'fonts/';
+
+@font-face {
+    font-family: "Open Sans Regular";
+    src: 
+        local("OpenSans-Regular"),
+        local("OpenSans"),
+        url('#{$fontsDirectory}OpenSans-Regular.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@mixin getFont($font: 'Open Sans Regular'){
+    font-family: #{$font}, Verdana, Arial;
+}

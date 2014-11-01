@@ -1,0 +1,51 @@
+/* Colors
+ * ----------
+ * Mixin for controling large amounts of colors, using maps. 
+ * To use it, include in your theme file map defining colors like in example below.
+ * Alternatively, pallet can contain groups like background, font, etc. */
+
+
+@function getColor($palette, $style: 'base') {
+
+    $p: map-get($colorPalettes, $palette);
+
+    @if $p != null {
+        @return map-get($p, $style);
+    } @else {
+        @warn "Palette `#{$palette}` does not exist.";
+    }        
+}
+
+/*
+
+$colorPalettes: (
+    purple: (
+        base:   rgb(42,40,80),
+        light:  rgb(51,46,140),
+        dark:   rgb(40,38,65)
+    ),
+    grey: (
+        base:  #AAAAAA,
+        light: lighten(#AAAAAA, 10%),
+        dark: darken(#AAAAAA, 10%)
+    )    
+);
+
+
+
+$colorPalettes: (
+    background: (
+        base:   #F5F5F5,
+        light:  #FFFFFF,
+        dark:   #F0F0F0
+    ),
+    font: (
+        base:  #444444,
+        active: #EE6C3E,
+        error: #DD0000
+    )    
+);
+
+
+
+*/

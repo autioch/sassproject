@@ -1,0 +1,55 @@
+/* Animations
+ * ----------
+ * This file contains mixins for defining keyframes and animation, as well as 
+ * basic keyframes. Any specific keyframes should be place in relevant module file. */
+
+
+/* Defining keyframes
+ * ------------------
+ * Use this mixin to define an animation. The animation itself does nothing.
+ * To use it, specify its name in mixin animation along with animation params. */
+@mixin keyframes($animation-name) {
+    
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }  
+    
+    @-ms-keyframes #{$animation-name} {
+        @content;
+    }
+    
+    @-o-keyframes #{$animation-name} {
+        @content;
+    }
+    
+    @keyframes #{$animation-name} {
+        @content;
+    }
+    
+}
+
+
+/* Defining animations
+ * -------------------
+ * Any animation defined using keyframes can be used as a param */
+@mixin animation($animation: 'spin 2s linear infinite') {
+    -webkit-animation: unquote($animation);
+    -moz-animation: unquote($animation);
+    -ms-animation: unquote($animation);
+    -o-animation: unquote($animation);
+    animation: unquote($animation);    
+}
+
+
+/* List of keyframes
+ * ----------------- */
+
+@include keyframes('spin') {
+    100% { 
+        @include transform('rotate(360deg)');
+    } 
+}

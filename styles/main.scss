@@ -1,0 +1,89 @@
+/* 
+ * This is the main scss file that will include all other files and generate css.
+ * 
+ * 1. If You want your stylesheet to be name differently, rename this file.
+ * 2. If You feel that any section grew to long, move it into separate file,
+ *    just the same as modules.
+ * 3. Please do not modify the order of sections, as this will result in unexpected
+ *    output if in any output at all.
+ * 4. Use --style=compressed (or similar format) to get compressed output for production.
+ * 5. Visit http://sass-lang.co/documentation/file.SASS_REFERENCE.html#output_style1
+ *    for more information about compressing output.
+ * 6. Use --sourcemap=none (or similar format) to avoid generating map for production.
+ */
+
+
+/* Vendor styles
+ * -------------
+ * If Your application uses any of vendor supplied styles, start building css
+ * with them, so they can be easily overwritten by custom styling. */
+//@import 'vendor/normalize'; //http://necolas.github.io/normalize.css/
+
+
+/* Theme settings 
+ * --------------
+ * Import settings for the current theme - mainly colors, but anything specific
+ * to the style can go there. If You plan to build more themes, copy this file, 
+ * rename accordingly to the theme name and change this line. */
+@import 'themes/default';
+
+
+/* Base settings
+ * -------------
+ * Setup Your helpers that will have defaults set from the theme settings. */
+@import 'base/reset';
+@import 'base/breakpoints';
+@import 'base/fonts';
+@import 'base/vendor-prefixes';
+@import 'base/colors';
+@import 'base/library';
+@import 'base/zindex';
+@import 'base/animations';
+
+
+/* Common GUI styling
+ * -------------------
+ * If you need to set some styling used across many places that doesn't fit any
+ * particular component, place it here. */
+@import 'common/input';
+@import 'common/misc';
+
+
+/* Reusable components
+ * -------------------
+ * Here should go css objects, that will be used repeatedly in many places. */
+@import 'components/button';
+
+
+/* Basic application layout
+ * ------------------------
+ * General structure for Your application does not change often. */
+@import 'layout/layout';
+@import 'layout/header';
+@import 'layout/menu';
+@import 'layout/content';
+@import 'layout/footer';
+
+
+/* Modules 
+ * -------
+ * Assuming Your application is split into modules, styles for each module have
+ * to be stored in separate files. Those files are listed in modules file, 
+ * since the list easily gets long and is subject to many changes. */
+@import 'modules';
+
+
+/* Shame
+ * -----
+ * All the dirty, quick fixes go there. During development this file should be
+ * empty and only filled when time is short. The only valid place for !important.*/
+@import 'shame';
+
+
+/* Debugging
+ * ---------
+ * All the styles for debugging during development go there. When you need to 
+ * check any property, uncomment this line. */
+//@import 'debug';
+
+

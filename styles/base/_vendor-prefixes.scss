@@ -1,0 +1,81 @@
+/* Vendor prefixes
+ * --------
+ * Mixins for solving vendor prefixes issues and unsupported gradients in IE9. */
+
+@mixin userSelect($state: "none"){
+    -webkit-user-select: unquote($state);  /* Chrome all / Safari all */
+    -moz-user-select: unquote($state);     /* Firefox all */
+    -ms-user-select: unquote($state);      /* IE 10+ */
+    //-o-user-select: unquote($state);
+    user-select: unquote($state);   
+}
+
+
+@mixin transform($transform: "translateZ(0)"){
+    //-webkit-transform: unquote($transform);
+    //-moz-transform: unquote($transform);
+    //-ms-transform: unquote($transform);
+    //-o-transform: unquote($transform);
+    transform: unquote($transform);
+}
+
+
+@mixin transition($transistion: "all 300ms"){
+    //-webkit-transition: unquote($transistion);
+    //-moz-transition: unquote($transistion);
+    //-ms-transition: unquote($transistion);
+    //-o-transition: unquote($transistion);
+    transition: unquote($transistion);
+}
+
+
+@mixin boxsizing($boxsizing: "border-box"){
+    //-webkit-box-sizing: unquote($boxsizing);
+    //-moz-box-sizing: unquote($boxsizing);
+    //-ms-box-sizing: unquote($boxsizing);
+    //-o-box-sizing: unquote($boxsizing);
+    box-sizing: unquote($boxsizing);
+}
+
+
+@mixin gradientHorizontal($from, $stop,  $to){
+    //background-color: $to;
+    //background-image: -webkit-gradient(linear, 0% 0%, 100% 0%, from(#{$from}), #{$stop} 50%, to(#{$to})); /* Safari 4-5, Chrome 1-9 */ 
+    //background-image: -webkit-linear-gradient(left,     #{$from}, #{$stop} 50%, #{$to}); /* Safari 5.1, Chrome 10+ */     
+    //background-image:    -moz-linear-gradient(left,     #{$from}, #{$stop} 50%, #{$to}); /* Firefox 3.6+ */ 
+    //background-image:      -o-linear-gradient(left,     #{$from}, #{$stop} 50%, #{$to}); /* Opera 11.10+ */ 
+    background-image:         linear-gradient(to right, #{$from}, #{$stop} 50%, #{$to});
+    @include ie9gradient(1, $from, $to);
+}
+
+
+@mixin gradientVertical($from, $to){
+    //background-color: $to;
+    //background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#{$from}), to(#{$to}));  /* Safari 4-5, Chrome 1-9 */ 
+    //background-image: -webkit-linear-gradient(top, #{$from}, #{$to}); /* Safari 5.1, Chrome 10+ */ 
+    //background-image:    -moz-linear-gradient(top, #{$from}, #{$to}); /* Firefox 3.6+ */ 
+    //background-image:      -o-linear-gradient(top, #{$from}, #{$to}); /* Opera 11.10+ */ 
+    background-image:      linear-gradient(to bottom, #{$from}, #{$to});
+    @include ie9gradient(0, $from, $to);
+}
+
+
+@mixin ie9gradient($type, $from, $to){
+    /* IE 9
+       ----
+       1. Supports only 2 colors in gradient. To get more, create multiple gradient elements.
+       2. Colors passed into filter must be in 6/8 digit format prepended with #.
+          By default, in compressed output, SASS shortens colors. To avoid this issue,
+          define colors as strings.
+       3. Another option is to use inspect function that will convert color to string.
+    */
+    @if str-length(#{$from}) < 7 {
+        @error 'Color "#{$from}" must be defined as string containing  6/8 digit hex value.';
+    }
+
+    @if str-length(#{$to}) < 7 {
+        @error 'Color "#{$from}" must be defined as string containing  6/8 digit hex value.';
+    }     
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType=#{$type}, startColorstr=#{$from}, EndColorstr=#{$to})";    
+}
+

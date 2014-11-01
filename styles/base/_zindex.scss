@@ -1,0 +1,44 @@
+/* Z-index
+ * -------
+ * This file provides a way to control zindexes without using any specific numebrs.
+ * List of zindex elements defines layers, that can be freely reordered,
+ * with new layers added without having to change anything else. 
+ * 1. No need to set indexes over 9000.
+ * 2. Z-index offset controls the number from which we want to start indexing.
+ * 3. The actual zindex returned is doubled to allow js modifications.
+ */
+
+$zindex-elements: 
+    'some-element',
+
+    'modal-background',
+    'modal-window',
+
+    'context-menu',
+
+    'dragging-helper',
+    'prompts'
+
+;
+
+
+
+$zindex-offset: 0;
+
+@mixin zindex($element,$important: false){
+
+    $z-index: index($zindex-elements, $element);
+
+    @if $z-index {
+
+        @if $important {
+            z-index: ($z-index * 2)+ $zindex-offset + !important;
+        } @else {
+            z-index: ($z-index * 2)+ $zindex-offset;
+        }
+
+    } @else {
+        @warn "Z-index layer `#{$element}` does not exist.";
+    }
+
+}

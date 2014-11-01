@@ -1,0 +1,39 @@
+/* Library
+ * -------
+ * Mixins and placeholders for repeatable property sets. */
+
+%clearfix {
+    *zoom: 1;
+    &:after {
+        content: "";
+        display: table;
+        clear: both 
+    }
+}
+
+@mixin ellipsis(){
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@mixin calcHeight($percentage, $list...){
+	$result: 0;
+
+	@each $item in $list {
+		$result: $result + $item;
+	}
+
+	height: calc(#{$percentage} - #{$result});
+
+}
+
+@mixin calcWidth($percentage, $list...){
+	$result: 0;
+
+	@each $item in $list {
+		$result: $result + $item;
+	}
+
+	width: calc(#{$percentage} - #{$result});
+}

@@ -1,0 +1,86 @@
+header{
+    margin-bottom: 1em;
+    font-size: 1.2em;
+}
+
+.tests{
+    @extend %clearfix;
+    >div{
+        float: left;
+        width: 100%;
+        margin-bottom: 2%;
+        @include boxsizing();
+        padding: 3em 2em;
+        background-color: getColor(background, test);
+        @include forBetween(x-small,medium){
+            width: 49%;
+            margin-left: 2%;
+            &:nth-child(2n + 1){
+                margin-left: 0;
+                clear: both;
+            }
+        }
+        @include forBetween(medium,x-large){
+            width: 32%;
+            margin-left: 2%;
+            &:nth-child(3n + 1){
+                margin-left: 0;
+                clear: both;
+            }
+        }
+        @include forMinimum(x-large){
+            width: 23.5%;
+            margin-left: 2%;
+            &:nth-child(4n + 1){
+                margin-left: 0;
+                clear: both;
+            }
+        }
+    }
+}
+
+.test-user-select{
+    @include userSelect();
+}
+
+.test-ellipsis{
+    >span{
+        display: block;
+        width: 3em;
+        @include ellipsis();
+    }
+    &:hover>span{
+        width:auto;
+        white-space: normal;
+    }
+}
+
+
+.test-gradient-horizontal{
+    @include gradientHorizontal(getColor(horizontal,from),getColor(horizontal,stop),getColor(horizontal,to));
+    //@include gradientVertical(#ff3333,'#ff3',#3f3); //this will not work for ie9
+}
+
+.test-gradient-vertical{
+    @include gradientVertical(getColor(vertical,from),getColor(vertical,to));
+    //@include gradientVertical(#def,#36f); //this will not work for ie9
+}
+
+.test-transform{
+    @include transition('transform 500ms');
+    @include transform('rotate(10deg)');
+    &:hover{
+        @include transform('none');
+    }
+}
+
+.test-button{
+    @extend %button;
+    @include gradientVertical(getColor(button,top),getColor(button,bottom));
+    color: getColor(button,font);
+    border-color: getColor(button,border);
+}
+
+.test-animation{
+    @include animation();
+}

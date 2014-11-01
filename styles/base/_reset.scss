@@ -1,0 +1,26 @@
+/* Reset
+ * -----
+ * If you do not want to include normalize.css in your project, this
+ * is a custom reset file, where you can place your normalize/reset styles. */
+
+html,body{
+    margin:0;
+    padding:0;
+}
+
+img{
+    border:0;
+}
+
+ul{
+    margin:0;
+    padding:0;
+    list-style-type: none;
+}
+
+*{
+    outline: 0px solid transparent;
+    &:focus{
+        outline: 0px solid transparent;        
+    }
+}
