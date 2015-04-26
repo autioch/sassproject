@@ -5,7 +5,40 @@
  * Alternatively, pallet can contain groups like background, font, etc. */
 
 
-@function getColor($palette, $style: 'base') {
+$colorPalettes: (
+    background: (
+        base:       #FCFCFC,
+        test:       #DDEEFF
+    ),
+    font: (
+        base:       #4E4E4E
+    ),
+    border: (
+        base:       #CACFD0
+    ),
+    shadow: (
+        base:       #0099FF
+    ),
+    button: (
+        top:        #FCFCFC,
+        bottom:     #F0F0F0,
+        font:       #555555,
+        border:     #999999
+    ),
+    vertical: (
+        from:       '#ddeeff',
+        to:         '#3366ff'
+    ),
+    horizontal: (
+        from:       '#ff3333',
+        stop:       '#ffff33',
+        to:         '#33ff33'
+    )
+);
+
+
+
+@function color($palette, $style: 'base') {
 
     $p: map-get($colorPalettes, $palette);
 
@@ -15,37 +48,3 @@
         @warn "Palette `#{$palette}` does not exist.";
     }        
 }
-
-/*
-
-$colorPalettes: (
-    purple: (
-        base:   rgb(42,40,80),
-        light:  rgb(51,46,140),
-        dark:   rgb(40,38,65)
-    ),
-    grey: (
-        base:  #AAAAAA,
-        light: lighten(#AAAAAA, 10%),
-        dark: darken(#AAAAAA, 10%)
-    )    
-);
-
-
-
-$colorPalettes: (
-    background: (
-        base:   #F5F5F5,
-        light:  #FFFFFF,
-        dark:   #F0F0F0
-    ),
-    font: (
-        base:  #444444,
-        active: #EE6C3E,
-        error: #DD0000
-    )    
-);
-
-
-
-*/

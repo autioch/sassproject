@@ -3,7 +3,7 @@ header{
     font-size: 1.2em;
 }
 
-.tests{
+.m-tests{
     @extend %clearfix;
     >div{
         float: left;
@@ -39,11 +39,11 @@ header{
     }
 }
 
-.test-user-select{
+.m-test-user-select{
     @include userSelect();
 }
 
-.test-ellipsis{
+.m-test-ellipsis{
     >span{
         display: block;
         width: 3em;
@@ -56,17 +56,17 @@ header{
 }
 
 
-.test-gradient-horizontal{
+.m-test-gradient-horizontal{
     @include gradientHorizontal(getColor(horizontal,from),getColor(horizontal,stop),getColor(horizontal,to));
     //@include gradientVertical(#ff3333,'#ff3',#3f3); //this will not work for ie9
 }
 
-.test-gradient-vertical{
+.m-test-gradient-vertical{
     @include gradientVertical(getColor(vertical,from),getColor(vertical,to));
     //@include gradientVertical(#def,#36f); //this will not work for ie9
 }
 
-.test-transform{
+.m-test-transform{
     @include transition('transform 500ms');
     @include transform('rotate(10deg)');
     &:hover{
@@ -74,13 +74,17 @@ header{
     }
 }
 
-.test-button{
-    @extend %button;
+.m-test-button{
+    @extend .c-btn;
     @include gradientVertical(getColor(button,top),getColor(button,bottom));
     color: getColor(button,font);
     border-color: getColor(button,border);
+
+    &:hover{
+        @include gradientVertical(getColor(button,bottom),getColor(button,top));        
+    }
 }
 
-.test-animation{
+.m-test-animation{
     @include animation();
 }

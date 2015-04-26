@@ -1,3 +1,21 @@
-*:focus{
-    outline: 3px solid #0f0 !important;
+@mixin debug($color){
+    outline: 4px solid $color !important;
 }
+
+/* Focus */
+//*:focus{ @include debug(#0f0); }
+
+/* Shame */
+//[class^="_"], [class*=" _"] { @include debug(#f00); }
+
+/* Module */
+//[class^="m-"],[class*=" m-"] { @include debug(#00f); }
+
+/* Component */
+//[class^="c-"],[class*=" c-"] { @include debug(#ff0); }
+
+/* Utils */
+//[class^="u-"], [class*=" u-"], [class^="is-"], [class*=" is-"], [class^="has-"], [class*=" has-"] { @include debug(#0ff); }
+
+/* JS classes */
+//[class^="js-"],[class*=" js-"] { @include debug(#f0f); }

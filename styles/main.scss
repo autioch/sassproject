@@ -1,89 +1,106 @@
-/* 
- * This is the main scss file that will include all other files and generate css.
- * 
- * 1. If You want your stylesheet to be name differently, rename this file.
- * 2. If You feel that any section grew to long, move it into separate file,
- *    just the same as modules.
- * 3. Please do not modify the order of sections, as this will result in unexpected
- *    output if in any output at all.
- * 4. Use --style=compressed (or similar format) to get compressed output for production.
- * 5. Visit http://sass-lang.co/documentation/file.SASS_REFERENCE.html#output_style1
- *    for more information about compressing output.
- * 6. Use --sourcemap=none (or similar format) to avoid generating map for production.
+/* About
+ * -----
+ * This is the main scss file used to generate final css.
+ * Order of the sections is very important, do not modify it.
  */
 
 
-/* Vendor styles
- * -------------
- * If Your application uses any of vendor supplied styles, start building css
+/* Production directives
+ * ---------------------
+ * Compressed output:   --style=compressed
+ * No map link:         --sourcemap=none
+ */
+
+
+/* Themes
+ * ------
+ * By default, this file creates single style. 
+ * 1. Rename this file to "_compiled".
+ * 2. In this file, comment out declared colors and settings.
+ * 3. For each theme, create file new file, that will declare theme colors and settings.
+ * 4. At the end of each theme file, @import "_compiled".
+ */
+
+
+/* Vendor
+ * ------
+ * If application uses any of vendor supplied styles, start building css
  * with them, so they can be easily overwritten by custom styling. */
-//@import 'vendor/normalize'; //http://necolas.github.io/normalize.css/
+//@import 'vendor/normalize';
+//@import 'vendor/960gs';
+//@import 'vendor/blueprint';
+//@import 'vendor/bootstrap';
+//@import 'vendor/foundation';
+//@import 'vendor/gridlock';
+//@import 'vendor/groundwork';
+//@import 'vendor/gumby';
+//@import 'vendor/kube';
+//@import 'vendor/pure';
+//@import 'vendor/semanticui';
+//@import 'vendor/skeleton';
+//@import 'vendor/tuktuk';
+//@import 'vendor/unsemantic';
+//@import 'vendor/yaml';
 
 
-/* Theme settings 
- * --------------
- * Import settings for the current theme - mainly colors, but anything specific
- * to the style can go there. If You plan to build more themes, copy this file, 
- * rename accordingly to the theme name and change this line. */
-@import 'themes/default';
-
-
-/* Base settings
- * -------------
- * Setup Your helpers that will have defaults set from the theme settings. */
+/* Reset/normalize
+ * ---------------
+ * If no vendor library is used, custom reset rules should be defined. */
 @import 'base/reset';
+
+
+/* Base
+ * ----
+ * Settings and helpers. No selectors should be defined in these files. */
+@import 'base/mixins';
+@import 'base/prefixes';
 @import 'base/breakpoints';
 @import 'base/fonts';
-@import 'base/vendor-prefixes';
 @import 'base/colors';
-@import 'base/library';
 @import 'base/zindex';
 @import 'base/animations';
 
 
-/* Common GUI styling
- * -------------------
- * If you need to set some styling used across many places that doesn't fit any
- * particular component, place it here. */
+/* Common
+ * ------
+ * Styling used for whole application or specific tags. */
+@import 'common/layout';
 @import 'common/input';
-@import 'common/misc';
 
 
-/* Reusable components
- * -------------------
- * Here should go css objects, that will be used repeatedly in many places. */
-@import 'components/button';
+/* Components
+ * ----------
+ * Class prefix: c
+ * Css objects, that will be used repeatedly in many places. */
+@import 'components/btn';
+@import 'components/checkbox';
+@import 'components/grid';
+@import 'components/radio';
 
 
-/* Basic application layout
- * ------------------------
- * General structure for Your application does not change often. */
-@import 'layout/layout';
-@import 'layout/header';
-@import 'layout/menu';
-@import 'layout/content';
-@import 'layout/footer';
+/* Utils
+ * -----
+ * Class prefix: u/is
+ * Selectors that are meant to change the state of the component or module. */
+@import 'utils/layout';
+@import 'utils/text';
 
 
 /* Modules 
  * -------
- * Assuming Your application is split into modules, styles for each module have
- * to be stored in separate files. Those files are listed in modules file, 
- * since the list easily gets long and is subject to many changes. */
-@import 'modules';
+ * Class prefix: m or <module-name>
+ * For each module, create separate file or folder. */
+@import 'modules/sample';
 
 
 /* Shame
  * -----
- * All the dirty, quick fixes go there. During development this file should be
- * empty and only filled when time is short. The only valid place for !important.*/
+ * Class prefix: _
+ * Place for dirty, temporal and quick fixes. */
 @import 'shame';
 
 
-/* Debugging
+/* Debug
  * ---------
- * All the styles for debugging during development go there. When you need to 
- * check any property, uncomment this line. */
-//@import 'debug';
-
-
+ * Styles for debugging. */
+@import 'debug';

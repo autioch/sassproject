@@ -1,0 +1,56 @@
+/*  */
+
+.container{
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 960px;
+    @include boxsizing;
+
+    @include forMinimum(x-large){
+        width: 1170px;
+    }
+
+    @include forMaximum(medium){
+        width: 100%;
+    }    
+
+
+}
+
+.row{
+    @extend %clearfix;
+    margin-left: 1em;
+    margin-right: 1em;
+    @include boxsizing;
+
+    >div{
+        float: left;    
+        min-height: 1px;
+        padding-left: 1em;
+        padding-right: 1em;
+        @include boxsizing;
+    }
+}
+
+/*.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{
+    float: left;    
+    min-height: 1px;
+    padding-left: 1em;
+    padding-right: 1em;
+    @include boxsizing;
+}*/
+
+.col-12 { width: 100%;}
+.col-11 { width: 91.66666667%;}
+.col-10 { width: 83.33333333%;}
+.col-9 {  width: 75%;}
+.col-8 {  width: 66.66666667%;}
+.col-7 {  width: 58.33333333%;}
+.col-6 {  width: 50%;}
+.col-5 {  width: 41.66666667%;}
+.col-4 {  width: 33.33333333%;}
+.col-3 {  width: 25%;}
+.col-2 {  width: 16.66666667%;}
+.col-1 {  width: 8.33333333%;}

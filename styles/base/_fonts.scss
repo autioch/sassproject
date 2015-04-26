@@ -16,6 +16,6 @@ $fontsDirectory: 'fonts/';
 }
 
 
-@mixin getFont($font: 'Open Sans Regular'){
+@mixin font($font: 'Open Sans Regular'){
     font-family: #{$font}, Verdana, Arial;
 }
