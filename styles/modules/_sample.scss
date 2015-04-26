@@ -1,8 +1,3 @@
-header{
-    margin-bottom: 1em;
-    font-size: 1.2em;
-}
-
 .m-tests{
     @extend %clearfix;
     >div{
@@ -11,7 +6,7 @@ header{
         margin-bottom: 2%;
         @include boxsizing();
         padding: 3em 2em;
-        background-color: getColor(background, test);
+        background-color: color(background, test);
         @include forBetween(x-small,medium){
             width: 49%;
             margin-left: 2%;
@@ -57,12 +52,12 @@ header{
 
 
 .m-test-gradient-horizontal{
-    @include gradientHorizontal(getColor(horizontal,from),getColor(horizontal,stop),getColor(horizontal,to));
+    @include gradientHorizontal(color(horizontal,from),color(horizontal,stop),color(horizontal,to));
     //@include gradientVertical(#ff3333,'#ff3',#3f3); //this will not work for ie9
 }
 
 .m-test-gradient-vertical{
-    @include gradientVertical(getColor(vertical,from),getColor(vertical,to));
+    @include gradientVertical(color(vertical,from),color(vertical,to));
     //@include gradientVertical(#def,#36f); //this will not work for ie9
 }
 
@@ -76,12 +71,12 @@ header{
 
 .m-test-button{
     @extend .c-btn;
-    @include gradientVertical(getColor(button,top),getColor(button,bottom));
-    color: getColor(button,font);
-    border-color: getColor(button,border);
+    @include gradientVertical(color(button,top),color(button,bottom));
+    color: color(button,font);
+    border-color: color(button,border);
 
     &:hover{
-        @include gradientVertical(getColor(button,bottom),getColor(button,top));        
+        @include gradientVertical(color(button,bottom),color(button,top));        
     }
 }
 

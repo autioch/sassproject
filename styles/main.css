@@ -1,0 +1,146 @@
+/* About ----- This is the main scss file used to generate final css. Order of the sections is very important, do not modify it. */
+/* Production directives --------------------- Compressed output:   --style=compressed No map link:         --sourcemap=none */
+/* Themes ------ By default, this file creates single style.  1. Rename this file to "_compiled". 2. In this file, comment out declared colors and settings. 3. For each theme, create file new file, that will declare theme colors and settings. 4. At the end of each theme file, @import "_compiled". */
+/* Vendor ------ If application uses any of vendor supplied styles, start building css with them, so they can be easily overwritten by custom styling. */
+/* Reset/normalize --------------- If no vendor library is used, custom reset rules should be defined. */
+/* Reset ----- If you do not want to include normalize.css in your project, this is a custom reset file, where you can place your normalize/reset styles. */
+html, body { margin: 0; padding: 0; }
+
+img { border: 0; }
+
+ul { margin: 0; padding: 0; list-style-type: none; }
+
+* { outline: 0px solid transparent; }
+*:focus { outline: 0px solid transparent; }
+
+/* Base ---- Settings and helpers. No selectors should be defined in these files. */
+/* Library ------- Mixins and placeholders for repeatable property sets. */
+.row, .m-tests { *zoom: 1; }
+.row:after, .m-tests:after { content: ""; display: table; clear: both; }
+
+/* Vendor prefixes -------- Mixins for solving vendor prefixes issues and unsupported gradients in IE9. */
+/* Breakpoints ----------- List of available breakpoints with mixins for using them. The three mixins have diffrent behaviour for undefined breakpoints. Feel free to choose one and modify the other mixin to behave the same way. */
+/* min-width --------- forMinimum mixin only allows defined breakpoints. If passed argument doesn't match, warning is issued. */
+/* max-width --------- forMaximum mixin allows defined breakpoints.  If passed argument doesn't match, it is used as the whole @media query. */
+/* min and max width --------- forBetween does not check for undefined breakpoints. */
+/* Fonts ----- List of fonts available in the application. Example of mixin for using fonts with fallback and default font. */
+@font-face { font-family: "Open Sans Regular"; src: local("OpenSans-Regular"), local("OpenSans"), url("fonts/OpenSans-Regular.woff") format("woff"); font-weight: normal; font-style: normal; }
+/* Colors ---------- Mixin for controling large amounts of colors, using maps.  To use it, include in your theme file map defining colors like in example below. Alternatively, pallet can contain groups like background, font, etc. */
+/* Z-index ------- This file provides a way to control zindexes without using any specific numebrs. List of zindex elements defines layers, that can be freely reordered, with new layers added without having to change anything else.  1. No need to set indexes over 9000. 2. Z-index offset controls the number from which we want to start indexing. 3. The actual zindex returned is doubled to allow js modifications. */
+/* Animations ---------- This file contains mixins for defining keyframes and animation, as well as  basic keyframes. Any specific keyframes should be place in relevant module file. */
+/* Defining keyframes ------------------ Use this mixin to define an animation. The animation itself does nothing. To use it, specify its name in mixin animation along with animation params. */
+/* Defining animations ------------------- Any animation defined using keyframes can be used as a param */
+/* List of keyframes ----------------- */
+@-webkit-keyframes spin { 100% { transform: rotate(360deg); } }
+@-moz-keyframes spin { 100% { transform: rotate(360deg); } }
+@-ms-keyframes spin { 100% { transform: rotate(360deg); } }
+@-o-keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+/* Common ------ Styling used for whole application or specific tags. */
+html { font-size: 14px; font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif; color: getColor(font); background-color: getColor(background); }
+@media (min-width: 1680px) { html { font-size: 16px; } }
+@media (max-width: 767px) { html { font-size: 12px; } }
+
+body { width: 80%; margin: 2em auto; }
+@media (min-width: 1680px) { body { width: 70%; } }
+@media (max-width: 767px) { body { width: 95%; } }
+
+select { padding: 0.2em 0.5em; border-radius: 0.2em; border: solid 1px #777; }
+
+textarea { padding: 0.2em 0.5em; border-radius: 0.2em; border: solid 1px #777; }
+
+/* You may also want to style password, color, etc. */
+input[type="text"] { padding: 0.2em 0.5em; border-radius: 0.2em; border: solid 1px #777; }
+
+input[type="radio"] { padding: 0.2em 0.5em; border-radius: 0.2em; border: solid 1px #777; }
+
+input[type="checkbox"] { padding: 0.2em 0.5em; border-radius: 0.2em; border: solid 1px #777; }
+
+/* Components ---------- Class prefix: c Css objects, that will be used repeatedly in many places. */
+.c-btn, .m-test-button { padding: 0.2em 0.5em; border-radius: 0.3em; border: solid 1px; cursor: pointer; text-align: center; }
+
+/*  */
+.container { margin-right: auto; margin-left: auto; padding-left: 1em; padding-right: 1em; width: 960px; box-sizing: border-box; }
+@media (min-width: 1680px) { .container { width: 1170px; } }
+@media (max-width: 992px) { .container { width: 100%; } }
+
+.row { margin-left: 1em; margin-right: 1em; box-sizing: border-box; }
+.row > div { float: left; min-height: 1px; padding-left: 1em; padding-right: 1em; box-sizing: border-box; }
+
+/*.col-1,.col-2,.col-3,.col-4,.col-5,.col-6,.col-7,.col-8,.col-9,.col-10,.col-11,.col-12{ float: left;     min-height: 1px; padding-left: 1em; padding-right: 1em; @include boxsizing;
+}*/
+.col-12 { width: 100%; }
+
+.col-11 { width: 91.66666667%; }
+
+.col-10 { width: 83.33333333%; }
+
+.col-9 { width: 75%; }
+
+.col-8 { width: 66.66666667%; }
+
+.col-7 { width: 58.33333333%; }
+
+.col-6 { width: 50%; }
+
+.col-5 { width: 41.66666667%; }
+
+.col-4 { width: 33.33333333%; }
+
+.col-3 { width: 25%; }
+
+.col-2 { width: 16.66666667%; }
+
+.col-1 { width: 8.33333333%; }
+
+/* Utils ----- Class prefix: u/is Selectors that are meant to change the state of the component or module. */
+.u-pull-left { float: left !important; }
+
+.u-pull-right { float: right !important; }
+
+.is-hidden { display: none !important; }
+
+.u-text-center { text-align: center !important; }
+
+.u-text-left { text-align: left !important; }
+
+.u-text-right { text-align: right !important; }
+
+/* Modules  ------- Class prefix: m or <module-name> For each module, create separate file or folder. */
+.m-tests > div { float: left; width: 100%; margin-bottom: 2%; box-sizing: border-box; padding: 3em 2em; background-color: #DDEEFF; }
+@media (min-width: 590px) and (max-width: 991px) { .m-tests > div { width: 49%; margin-left: 2%; }
+  .m-tests > div:nth-child(2n + 1) { margin-left: 0; clear: both; } }
+@media (min-width: 992px) and (max-width: 1679px) { .m-tests > div { width: 32%; margin-left: 2%; }
+  .m-tests > div:nth-child(3n + 1) { margin-left: 0; clear: both; } }
+@media (min-width: 1680px) { .m-tests > div { width: 23.5%; margin-left: 2%; }
+  .m-tests > div:nth-child(4n + 1) { margin-left: 0; clear: both; } }
+
+.m-test-user-select { -webkit-user-select: none; /* Chrome all / Safari all */ -moz-user-select: none; /* Firefox all */ -ms-user-select: none; /* IE 10+ */ user-select: none; }
+
+.m-test-ellipsis > span { display: block; width: 3em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.m-test-ellipsis:hover > span { width: auto; white-space: normal; }
+
+.m-test-gradient-horizontal { background-image: linear-gradient(to right, #ff3333, #ffff33 50%, #33ff33); /* IE 9 ---- 1. Supports only 2 colors in gradient. To get more, create multiple gradient elements. 2. Colors passed into filter must be in 6/8 digit format prepended with #. By default, in compressed output, SASS shortens colors. To avoid this issue, define colors as strings. 3. Another option is to use inspect function that will convert color to string.
+*/ -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType=1, startColorstr=#ff3333, EndColorstr=#33ff33)"; }
+
+.m-test-gradient-vertical { background-image: linear-gradient(to bottom, #ddeeff, #3366ff); /* IE 9 ---- 1. Supports only 2 colors in gradient. To get more, create multiple gradient elements. 2. Colors passed into filter must be in 6/8 digit format prepended with #. By default, in compressed output, SASS shortens colors. To avoid this issue, define colors as strings. 3. Another option is to use inspect function that will convert color to string.
+*/ -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr=#ddeeff, EndColorstr=#3366ff)"; }
+
+.m-test-transform { transition: transform 500ms; transform: rotate(10deg); }
+.m-test-transform:hover { transform: none; }
+
+.m-test-button { background-image: linear-gradient(to bottom, #FCFCFC, #F0F0F0); /* IE 9 ---- 1. Supports only 2 colors in gradient. To get more, create multiple gradient elements. 2. Colors passed into filter must be in 6/8 digit format prepended with #. By default, in compressed output, SASS shortens colors. To avoid this issue, define colors as strings. 3. Another option is to use inspect function that will convert color to string.
+*/ -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr=#FCFCFC, EndColorstr=#F0F0F0)"; color: #555555; border-color: #999999; }
+.m-test-button:hover { background-image: linear-gradient(to bottom, #F0F0F0, #FCFCFC); /* IE 9 ---- 1. Supports only 2 colors in gradient. To get more, create multiple gradient elements. 2. Colors passed into filter must be in 6/8 digit format prepended with #. By default, in compressed output, SASS shortens colors. To avoid this issue, define colors as strings. 3. Another option is to use inspect function that will convert color to string.
+*/ -ms-filter: "progid:DXImageTransform.Microsoft.gradient( GradientType=0, startColorstr=#F0F0F0, EndColorstr=#FCFCFC)"; }
+
+.m-test-animation { -webkit-animation: spin 2s linear infinite; -moz-animation: spin 2s linear infinite; -ms-animation: spin 2s linear infinite; -o-animation: spin 2s linear infinite; animation: spin 2s linear infinite; }
+
+/* Shame ----- Class prefix: _ Place for dirty, temporal and quick fixes. */
+/* Debug --------- Styles for debugging. */
+/* Focus */
+/* Shame */
+/* Module */
+/* Component */
+/* Utils */
+/* JS classes */
