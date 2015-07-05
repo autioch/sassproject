@@ -52,12 +52,12 @@
 
 
 .m-test-gradient-horizontal{
-    @include gradientHorizontal(color(horizontal,from),color(horizontal,stop),color(horizontal,to));
+    @include gradientBg3h(color(horizontal,from),color(horizontal,stop),color(horizontal,to));
     //@include gradientVertical(#ff3333,'#ff3',#3f3); //this will not work for ie9
 }
 
 .m-test-gradient-vertical{
-    @include gradientVertical(color(vertical,from),color(vertical,to));
+    @include gradientBg2v(color(vertical,from),color(vertical,to));
     //@include gradientVertical(#def,#36f); //this will not work for ie9
 }
 
@@ -71,15 +71,16 @@
 
 .m-test-button{
     @extend .c-btn;
-    @include gradientVertical(color(button,top),color(button,bottom));
+    @include gradientBg2v(color(button,top),color(button,bottom));
     color: color(button,font);
     border-color: color(button,border);
 
     &:hover{
-        @include gradientVertical(color(button,bottom),color(button,top));        
+        @include gradientBg2v(color(button,bottom),color(button,top));        
     }
 }
 
 .m-test-animation{
     @include animation();
 }
+

@@ -4,7 +4,6 @@
  * have diffrent behaviour for undefined breakpoints. Feel free to choose one
  * and modify the other mixin to behave the same way. */
 
-
 $breakpoints: (
 x-small: 590,
 small: 767,
@@ -19,10 +18,11 @@ x-large: 1680
  * forMinimum mixin only allows defined breakpoints.
  * If passed argument doesn't match, warning is issued. */
 @mixin forMinimum($breakpoint){
-    $value: map-get($breakpoints, $breakpoint);
+    $from: map-get($breakpoints, $breakpoint);
+    $from: $from + 1;
 
-    @if $value != null {
-        @media (min-width: $value + 'px') {
+    @if $from != null {
+        @media (min-width: $from + 'px') {
             @content;
         }
     } @else {
@@ -36,10 +36,10 @@ x-large: 1680
  * forMaximum mixin allows defined breakpoints. 
  * If passed argument doesn't match, it is used as the whole @media query. */
 @mixin forMaximum($breakpoint){
-    $value: map-get($breakpoints, $breakpoint);
+    $to: map-get($breakpoints, $breakpoint);
 
-    @if $value != null {
-        @media (max-width: $value + 'px') {
+    @if $to != null {
+        @media (max-width: $to + 'px') {
             @content;
         }
     } @else {
@@ -49,15 +49,17 @@ x-large: 1680
     }      
 }
 
+
 /* min and max width
  * ---------
  * forBetween does not check for undefined breakpoints. */
 @mixin forBetween($minimum,$maximum){
     $from: map-get($breakpoints, $minimum);
     $to: map-get($breakpoints, $maximum);
-    $to: $to - 1;
+    $from: $from + 1;
 
     @media (min-width: $from + 'px') and (max-width: $to + 'px') {
         @content;
     }
 }
+

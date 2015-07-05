@@ -1,8 +1,8 @@
 html{
     font-size: 14px;
     font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif;  
-    color: getColor(font);
-    background-color: getColor(background);
+    color: color(font);
+    background-color: color(background);
 
     @include forMinimum(x-large){
         font-size: 16px;
