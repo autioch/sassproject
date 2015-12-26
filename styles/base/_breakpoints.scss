@@ -27,13 +27,13 @@ x-large: 1680
         }
     } @else {
         @warn "Media breakpoint `#{$breakpoint}` does not exist.";
-    }      
+    }
 }
 
 
 /* max-width
  * ---------
- * forMaximum mixin allows defined breakpoints. 
+ * forMaximum mixin allows defined breakpoints.
  * If passed argument doesn't match, it is used as the whole @media query. */
 @mixin forMaximum($breakpoint){
     $to: map-get($breakpoints, $breakpoint);
@@ -46,7 +46,7 @@ x-large: 1680
         @media ($breakpoint) {
             @content;
         }
-    }      
+    }
 }
 
 
@@ -62,4 +62,3 @@ x-large: 1680
         @content;
     }
 }
-

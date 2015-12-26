@@ -1,31 +1,8 @@
-/* About
- * -----
- * This is the main scss file used to generate final css.
- * Order of the sections is very important, do not modify it.
- */
+/* ORDER OF THE SECTIONS IS VERY IMPORTANT, DO NOT MODIFY IT. */
+/* Reset/normalize - use Your own if no vendore normalize is used.*/
+@import 'base/reset';
 
-
-/* Production directives
- * ---------------------
- * Compressed output:   --style=compressed
- * No map link:         --sourcemap=none
- */
-
-
-/* Themes
- * ------
- * By default, this file creates single style. 
- * 1. Rename this file to "_compiled".
- * 2. In this file, comment out declared colors and settings.
- * 3. For each theme, create file new file, that will declare theme colors and settings.
- * 4. At the end of each theme file, @import "_compiled".
- */
-
-
-/* Vendor
- * ------
- * If application uses any of vendor supplied styles, start building css
- * with them, so they can be easily overwritten by custom styling. */
+/* Vendor  */
 //@import 'vendor/normalize';
 //@import 'vendor/960gs';
 //@import 'vendor/blueprint';
@@ -42,16 +19,7 @@
 //@import 'vendor/unsemantic';
 //@import 'vendor/yaml';
 
-
-/* Reset/normalize
- * ---------------
- * If no vendor library is used, custom reset rules should be defined. */
-@import 'base/reset';
-
-
-/* Base
- * ----
- * Settings and helpers. No selectors should be defined in these files. */
+/* Base */
 @import 'base/mixins';
 @import 'base/prefixes';
 @import 'base/gradients';
@@ -61,47 +29,25 @@
 @import 'base/zindex';
 @import 'base/animations';
 
-
-/* Common
- * ------
- * Styling used for whole application or specific tags. */
+/* Layout */
 @import 'common/layout';
 @import 'common/input';
 
-
-/* Components
- * ----------
- * Class prefix: c
- * Css objects, that will be used repeatedly in many places. */
+/* Components */
 @import 'components/btn';
 @import 'components/checkbox';
 @import 'components/grid';
 @import 'components/radio';
 
-
-/* Utils
- * -----
- * Class prefix: u/is
- * Selectors that are meant to change the state of the component or module. */
+/* Utils */
 @import 'utils/layout';
 @import 'utils/text';
 
-
-/* Modules 
- * -------
- * Class prefix: m or <module-name>
- * For each module, create separate file or folder. */
+/* Modules*/
 @import 'modules/sample';
 
-
-/* Shame
- * -----
- * Class prefix: _
- * Place for dirty, temporal and quick fixes. */
+/* Shame */
 @import 'shame';
 
-
-/* Debug
- * ---------
- * Styles for debugging. */
+/* Debug */
 @import 'debug';

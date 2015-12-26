@@ -1,6 +1,6 @@
 html{
     font-size: 14px;
-    font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif;  
+    font-family: 'Open Sans', Helvetica, Verdana, Arial, sans-serif;
     color: color(font);
     background-color: color(background);
 
@@ -9,7 +9,7 @@ html{
     }
 
     @include forMaximum(small){
-        font-size: 12px;       
+        font-size: 12px;
     }
 
 }
@@ -24,6 +24,10 @@ body{
     }
 
     @include forMaximum(small){
-        width: 95%; 
+        width: 95%;
     }
+}
+
+a {
+  text-decoration: none;
 }
